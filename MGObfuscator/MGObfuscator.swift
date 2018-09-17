@@ -7,9 +7,11 @@
 //
 
 import Foundation
-//https://stackoverflow.com/questions/25248598/importing-commoncrypto-in-a-swift-framework
 import CommonCrypto
-
+/* for previous release, CommonCrypto is not shipped as a framework. So it needs to integrated for previous
+ release
+https://stackoverflow.com/questions/25248598/importing-commoncrypto-in-a-swift-framework
+*/
 class MGObfuscator {
 
 
