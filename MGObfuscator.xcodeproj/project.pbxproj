@@ -49,7 +49,7 @@
 		3A6B89A42149F9B3003F5323 /* MGObfuscatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGObfuscatorUITests.swift; sourceTree = "<group>"; };
 		3A6B89A62149F9B3003F5323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A6B89B22149FA09003F5323 /* MGObfuscator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGObfuscator.swift; sourceTree = "<group>"; };
-		3AD65ABD214F7772009DB826 /* Obfuscator.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Obfuscator.playground; path = ../../../.Trash/Obfuscator.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3AD65AC1214F7BDC009DB826 /* MGObfuscator.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MGObfuscator.playground; path = MGObfuscator/MGObfuscator.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 		3A6B89782149F9B2003F5323 = {
 			isa = PBXGroup;
 			children = (
-				3AD65ABD214F7772009DB826 /* Obfuscator.playground */,
+				3AD65AC1214F7BDC009DB826 /* MGObfuscator.playground */,
 				3A6B89832149F9B2003F5323 /* MGObfuscator */,
 				3A6B89982149F9B3003F5323 /* MGObfuscatorTests */,
 				3A6B89A32149F9B3003F5323 /* MGObfuscatorUITests */,
