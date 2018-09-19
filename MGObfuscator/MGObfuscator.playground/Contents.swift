@@ -8,6 +8,11 @@ class MGObfuscator {
 
     init(password: String) {
         keyData = password.data(using: .utf8)!
+        let rStatus = SecRandomCopyBytes(kSecRandomDefault, ivData.count, &ivData)
+        print(ivData)
+        guard rStatus == errSecSuccess else {
+            fatalError("seed not generated \(rStatus)")
+        }
     }
 
     func aesEncription(inputData: Data, keyData: Data, ivData: Data, operation: Int) -> Data {
