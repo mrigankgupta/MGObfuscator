@@ -7,6 +7,8 @@ final class MGObfuscator {
     private let derivedKey: Data
 
     init(password: String, salt: String) {
+        //Quickly get the data to release the password string
+        let passwordData = password.data(using: .utf8)!
         //
         // Rounds require for 1 sec delay in generating hash.
         // Salt is a public attribute. If attacker somehow get the drivedKey and try to crack
@@ -17,7 +19,7 @@ final class MGObfuscator {
                                       salt.count, CCPseudoRandomAlgorithm(kCCPRFHmacAlgSHA1), Int(CC_SHA1_DIGEST_LENGTH), 1000)
 
         let saltData = salt.data(using: .utf8)!
-        derivedKey = MGObfuscator.derivedKey(for: password.data(using: .utf8)!,
+        derivedKey = MGObfuscator.derivedKey(for: passwordData,
                                              saltData: saltData, rounds: rounds)
 
         ivData = [UInt8](repeating: 0, count: kCCBlockSizeAES128)
