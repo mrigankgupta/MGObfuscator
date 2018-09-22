@@ -1,12 +1,45 @@
 import Foundation
 import CommonCrypto
 
+enum CripticAlgo {
+    case AlgoAES
+    case AlgoDES
+
+    func blockSize() -> Int {
+        switch self {
+        case .AlgoAES:
+            return kCCBlockSizeAES128
+        case .AlgoDES:
+            return kCCBlockSizeDES
+        }
+    }
+
+    func keySize() -> size_t {
+        switch self {
+        case .AlgoAES:
+            return kCCKeySizeAES128
+        case .AlgoDES:
+            return kCCKeySizeDES
+        }
+    }
+
+    func algo() -> UInt32 {
+        switch self {
+        case .AlgoAES:
+            return CCAlgorithm(kCCAlgorithmAES)
+        case .AlgoDES:
+            return CCAlgorithm(kCCAlgorithmDES)
+        }
+    }
+}
+
 final class MGObfuscator {
 
     private var ivData: [UInt8]
     private let derivedKey: Data
+    private let cripticAlgo: CripticAlgo
 
-    init(password: String, salt: String) {
+    init(password: String, salt: String, algo: CripticAlgo) {
         //Quickly get the data to release the password string
         let passwordData = password.data(using: .utf8)!
         //
@@ -21,8 +54,8 @@ final class MGObfuscator {
         let saltData = salt.data(using: .utf8)!
         derivedKey = MGObfuscator.derivedKey(for: passwordData,
                                              saltData: saltData, rounds: rounds)
-
-        ivData = [UInt8](repeating: 0, count: kCCBlockSizeAES128)
+        self.cripticAlgo = algo
+        ivData = [UInt8](repeating: 0, count: algo.blockSize())
         // Random criptographically secure bytes for initialisation Vector
         let rStatus = SecRandomCopyBytes(kSecRandomDefault, ivData.count, &ivData)
         print(ivData)
@@ -47,9 +80,9 @@ final class MGObfuscator {
     }
 
     private func aesEncription(inputData: Data, keyData: Data, ivData: Data, operation: Int) -> Data {
-        let cryptLength = size_t(inputData.count + kCCBlockSizeAES128)
+        let cryptLength = size_t(inputData.count + cripticAlgo.blockSize())
         var cryptData = Data(count: cryptLength)
-        let keyLength = size_t(kCCKeySizeAES128)
+        let keyLength = cripticAlgo.keySize()
 
         var bytesProcessed: size_t = 0
         let cryptStatus = cryptData.withUnsafeMutableBytes {cryptBytes in
@@ -57,7 +90,7 @@ final class MGObfuscator {
                 keyData.withUnsafeBytes { keyBytes in
                     ivData.withUnsafeBytes{ ivBytes in
                         CCCrypt(CCOperation(operation),
-                                CCAlgorithm(kCCAlgorithmAES),
+                                cripticAlgo.algo(),
                                 CCOptions(kCCOptionPKCS7Padding),
                                 keyBytes, keyLength,
                                 ivBytes,
@@ -87,7 +120,8 @@ final class MGObfuscator {
     }
 }
 
-let obfs = MGObfuscator(password: "password", salt: String(describing:MGObfuscator.self))
+let obfs = MGObfuscator(password: "password", salt: String(describing:MGObfuscator.self),
+                        algo: .AlgoDES)
 
 let encrpted = obfs.encript(inputString: "Mrigank")
 
