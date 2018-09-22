@@ -1,7 +1,7 @@
 import Foundation
 import CommonCrypto
-
-enum CripticAlgo {
+// A thin wrapper arround interfacing
+enum CrypticAlgo {
     case AlgoAES
     case AlgoDES
 
@@ -35,11 +35,11 @@ enum CripticAlgo {
 
 final class MGObfuscator {
 
-    private var ivData: [UInt8]
-    private let derivedKey: Data
-    private let cripticAlgo: CripticAlgo
+    private var ivData: [UInt8]?
+    private var derivedKey: Data?
+    private let crypticAlgo: CrypticAlgo
 
-    init(password: String, salt: String, algo: CripticAlgo) {
+    init(password: String, salt: String, algo: CrypticAlgo) {
         //Quickly get the data to release the password string
         let passwordData = password.data(using: .utf8)!
         //
@@ -54,10 +54,11 @@ final class MGObfuscator {
         let saltData = salt.data(using: .utf8)!
         derivedKey = MGObfuscator.derivedKey(for: passwordData,
                                              saltData: saltData, rounds: rounds)
-        self.cripticAlgo = algo
-        ivData = [UInt8](repeating: 0, count: algo.blockSize())
+        self.crypticAlgo = algo
+        var ivData = [UInt8](repeating: 0, count: algo.blockSize())
         // Random criptographically secure bytes for initialisation Vector
         let rStatus = SecRandomCopyBytes(kSecRandomDefault, ivData.count, &ivData)
+        self.ivData = ivData
         print(ivData)
         guard rStatus == errSecSuccess else {
             fatalError("seed not generated \(rStatus)")
@@ -79,10 +80,10 @@ final class MGObfuscator {
         return derivedData
     }
 
-    private func aesEncription(inputData: Data, keyData: Data, ivData: Data, operation: Int) -> Data {
-        let cryptLength = size_t(inputData.count + cripticAlgo.blockSize())
+    private func runCryptic(operation: Int, inputData: Data, keyData: Data, ivData: Data) -> Data {
+        let cryptLength = size_t(inputData.count + crypticAlgo.blockSize())
         var cryptData = Data(count: cryptLength)
-        let keyLength = cripticAlgo.keySize()
+        let keyLength = crypticAlgo.keySize()
 
         var bytesProcessed: size_t = 0
         let cryptStatus = cryptData.withUnsafeMutableBytes {cryptBytes in
@@ -90,7 +91,7 @@ final class MGObfuscator {
                 keyData.withUnsafeBytes { keyBytes in
                     ivData.withUnsafeBytes{ ivBytes in
                         CCCrypt(CCOperation(operation),
-                                cripticAlgo.algo(),
+                                crypticAlgo.algo(),
                                 CCOptions(kCCOptionPKCS7Padding),
                                 keyBytes, keyLength,
                                 ivBytes,
@@ -111,20 +112,25 @@ final class MGObfuscator {
 
     public func encript(inputString: String) -> Data {
         let inputdata = inputString.data(using: .utf8)!
-        return aesEncription(inputData: inputdata, keyData: derivedKey, ivData: Data(bytes: ivData), operation: kCCEncrypt)
+        return runCryptic(operation: kCCEncrypt, inputData: inputdata, keyData: derivedKey!, ivData: Data(bytes: ivData!))
     }
 
     public func decript(data: Data, result: (String) -> Void) {
-        let data = aesEncription(inputData: data, keyData: derivedKey, ivData: Data(bytes: ivData), operation: kCCDecrypt)
+        let data = runCryptic(operation: kCCDecrypt, inputData: data, keyData: derivedKey!, ivData: Data(bytes: ivData!))
         result(String(data: data, encoding: .utf8)!)
+    }
+
+    public func purge() {
+        ivData = nil
+        derivedKey = nil
     }
 }
 
-let obfs = MGObfuscator(password: "password", salt: String(describing:MGObfuscator.self),
+let obfs = MGObfuscator(password: "password", salt: String(describing: MGObfuscator.self),
                         algo: .AlgoDES)
 
 let encrpted = obfs.encript(inputString: "Mrigank")
-
 obfs.decript(data: encrpted) { (decripted) in
     print(decripted)
 }
+
