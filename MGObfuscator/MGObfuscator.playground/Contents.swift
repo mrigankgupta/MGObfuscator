@@ -59,7 +59,7 @@ final class MGObfuscator {
         // Random criptographically secure bytes for initialisation Vector
         let rStatus = SecRandomCopyBytes(kSecRandomDefault, ivData.count, &ivData)
         self.ivData = ivData
-        print(ivData)
+//        print(ivData)
         guard rStatus == errSecSuccess else {
             fatalError("seed not generated \(rStatus)")
         }
@@ -110,6 +110,12 @@ final class MGObfuscator {
         return cryptData
     }
 
+    public func encriptAndPurge(inputString: inout String) -> Data {
+        let inputdata = inputString.data(using: .utf8)!
+        inputString = ""
+        return runCryptic(operation: kCCEncrypt, inputData: inputdata, keyData: derivedKey!, ivData: Data(bytes: ivData!))
+    }
+
     public func encript(inputString: String) -> Data {
         let inputdata = inputString.data(using: .utf8)!
         return runCryptic(operation: kCCEncrypt, inputData: inputdata, keyData: derivedKey!, ivData: Data(bytes: ivData!))
@@ -128,9 +134,13 @@ final class MGObfuscator {
 
 let obfs = MGObfuscator(password: "password", salt: String(describing: MGObfuscator.self),
                         algo: .AlgoDES)
-
 let encrpted = obfs.encript(inputString: "Mrigank")
 obfs.decript(data: encrpted) { (decripted) in
     print(decripted)
 }
-
+var surname = "Gupta"
+let encrptedSurname = obfs.encriptAndPurge(inputString: &surname)
+obfs.decript(data: encrptedSurname) { (decripted) in
+    print(decripted)
+}
+print(surname)
