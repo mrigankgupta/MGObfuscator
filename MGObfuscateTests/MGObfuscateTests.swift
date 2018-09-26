@@ -7,13 +7,19 @@
 //
 
 import XCTest
-@testable import MGObfuscate
+import MGObfuscate
 
 class MGObfuscateTests: XCTestCase {
-    
+
+    var obfsDES: MGObfuscate!
+    var obfsAES: MGObfuscate!
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        obfsDES = MGObfuscate(password: "UserPinXXXX", salt: String(describing: MGObfuscate.self),
+                          algo: .AlgoDES)
+        obfsAES = MGObfuscate(password: "OtherUserPinXXXX", salt: String(describing: MGObfuscate.self),
+                              algo: .AlgoAES)
     }
     
     override func tearDown() {
@@ -21,16 +27,22 @@ class MGObfuscateTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testDESAlgo() {
+        var testString = "Mrigank"
+        let encrpted = obfsDES.encriptAndPurge(inputString: &testString)
+        obfsDES.decript(data: encrpted) { (decripted) in
+            XCTAssertEqual(decripted, "Mrigank")
         }
+        XCTAssertNotEqual(testString, "Mrigank")
+    }
+
+    func testAESAlgo() {
+        var testString = "Gupta"
+        let encrpted = obfsAES.encriptAndPurge(inputString: &testString)
+        obfsAES.decript(data: encrpted) { (decripted) in
+            XCTAssertEqual(decripted, "Gupta")
+        }
+        XCTAssertNotEqual(testString, "Gupta")
     }
     
 }
