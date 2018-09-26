@@ -1,15 +1,15 @@
 //
-//  MGObfuscatorTests.swift
-//  MGObfuscatorTests
+//  MGObfuscateTests.swift
+//  MGObfuscateTests
 //
-//  Created by Gupta, Mrigank on 13/09/18.
+//  Created by Gupta, Mrigank on 26/09/18.
 //  Copyright © 2018 Gupta, Mrigank. All rights reserved.
 //
 
 import XCTest
-@testable import MGObfuscator
+@testable import MGObfuscate
 
-class MGObfuscatorTests: XCTestCase {
+class MGObfuscateTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -24,6 +24,13 @@ class MGObfuscatorTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measure {
+            // Put the code you want to measure the time of here.
+        }
     }
     
 }

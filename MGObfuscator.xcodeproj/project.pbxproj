@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A522A0F215BA450006C872C /* MGObfuscate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A522A06215BA44F006C872C /* MGObfuscate.framework */; };
+		3A522A16215BA450006C872C /* MGObfuscateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A522A15215BA450006C872C /* MGObfuscateTests.swift */; };
+		3A522A18215BA450006C872C /* MGObfuscate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A522A08215BA44F006C872C /* MGObfuscate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A522A1B215BA450006C872C /* MGObfuscate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A522A06215BA44F006C872C /* MGObfuscate.framework */; };
+		3A522A1C215BA450006C872C /* MGObfuscate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A522A06215BA44F006C872C /* MGObfuscate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3A522A24215BA508006C872C /* MGObfuscate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B89B22149FA09003F5323 /* MGObfuscate.swift */; };
 		3A6B89852149F9B2003F5323 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B89842149F9B2003F5323 /* AppDelegate.swift */; };
 		3A6B89872149F9B2003F5323 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B89862149F9B2003F5323 /* ViewController.swift */; };
 		3A6B898A2149F9B2003F5323 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B89882149F9B2003F5323 /* Main.storyboard */; };
@@ -14,10 +20,30 @@
 		3A6B898F2149F9B3003F5323 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B898D2149F9B3003F5323 /* LaunchScreen.storyboard */; };
 		3A6B899A2149F9B3003F5323 /* MGObfuscatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B89992149F9B3003F5323 /* MGObfuscatorTests.swift */; };
 		3A6B89A52149F9B3003F5323 /* MGObfuscatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B89A42149F9B3003F5323 /* MGObfuscatorUITests.swift */; };
-		3A6B89B32149FA09003F5323 /* MGObfuscator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B89B22149FA09003F5323 /* MGObfuscator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3A522A10215BA450006C872C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A6B89792149F9B2003F5323 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A522A05215BA44F006C872C;
+			remoteInfo = MGObfuscate;
+		};
+		3A522A12215BA450006C872C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A6B89792149F9B2003F5323 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A6B89802149F9B2003F5323;
+			remoteInfo = MGObfuscator;
+		};
+		3A522A19215BA450006C872C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A6B89792149F9B2003F5323 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A522A05215BA44F006C872C;
+			remoteInfo = MGObfuscate;
+		};
 		3A6B89962149F9B3003F5323 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3A6B89792149F9B2003F5323 /* Project object */;
@@ -34,7 +60,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3A522A20215BA450006C872C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3A522A1C215BA450006C872C /* MGObfuscate.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3A522A06215BA44F006C872C /* MGObfuscate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MGObfuscate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A522A08215BA44F006C872C /* MGObfuscate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGObfuscate.h; sourceTree = "<group>"; };
+		3A522A09215BA44F006C872C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A522A0E215BA450006C872C /* MGObfuscateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGObfuscateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A522A15215BA450006C872C /* MGObfuscateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGObfuscateTests.swift; sourceTree = "<group>"; };
+		3A522A17215BA450006C872C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A6B89812149F9B2003F5323 /* MGObfuscator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGObfuscator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A6B89842149F9B2003F5323 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A6B89862149F9B2003F5323 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,15 +94,31 @@
 		3A6B89A02149F9B3003F5323 /* MGObfuscatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGObfuscatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A6B89A42149F9B3003F5323 /* MGObfuscatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGObfuscatorUITests.swift; sourceTree = "<group>"; };
 		3A6B89A62149F9B3003F5323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A6B89B22149FA09003F5323 /* MGObfuscator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGObfuscator.swift; sourceTree = "<group>"; };
+		3A6B89B22149FA09003F5323 /* MGObfuscate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGObfuscate.swift; sourceTree = "<group>"; };
 		3AD65AC1214F7BDC009DB826 /* MGObfuscator.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MGObfuscator.playground; path = MGObfuscator/MGObfuscator.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3A522A03215BA44F006C872C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A522A0B215BA450006C872C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A522A0F215BA450006C872C /* MGObfuscate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A6B897E2149F9B2003F5323 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A522A1B215BA450006C872C /* MGObfuscate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +139,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A522A07215BA44F006C872C /* MGObfuscate */ = {
+			isa = PBXGroup;
+			children = (
+				3A522A08215BA44F006C872C /* MGObfuscate.h */,
+				3A522A09215BA44F006C872C /* Info.plist */,
+			);
+			path = MGObfuscate;
+			sourceTree = "<group>";
+		};
+		3A522A14215BA450006C872C /* MGObfuscateTests */ = {
+			isa = PBXGroup;
+			children = (
+				3A522A15215BA450006C872C /* MGObfuscateTests.swift */,
+				3A522A17215BA450006C872C /* Info.plist */,
+			);
+			path = MGObfuscateTests;
+			sourceTree = "<group>";
+		};
+		3A522A25215BA58D006C872C /* MGObfuscate */ = {
+			isa = PBXGroup;
+			children = (
+				3A6B89B22149FA09003F5323 /* MGObfuscate.swift */,
+			);
+			path = MGObfuscate;
+			sourceTree = "<group>";
+		};
 		3A6B89782149F9B2003F5323 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +172,8 @@
 				3A6B89832149F9B2003F5323 /* MGObfuscator */,
 				3A6B89982149F9B3003F5323 /* MGObfuscatorTests */,
 				3A6B89A32149F9B3003F5323 /* MGObfuscatorUITests */,
+				3A522A07215BA44F006C872C /* MGObfuscate */,
+				3A522A14215BA450006C872C /* MGObfuscateTests */,
 				3A6B89822149F9B2003F5323 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +184,8 @@
 				3A6B89812149F9B2003F5323 /* MGObfuscator.app */,
 				3A6B89952149F9B3003F5323 /* MGObfuscatorTests.xctest */,
 				3A6B89A02149F9B3003F5323 /* MGObfuscatorUITests.xctest */,
+				3A522A06215BA44F006C872C /* MGObfuscate.framework */,
+				3A522A0E215BA450006C872C /* MGObfuscateTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,7 +193,7 @@
 		3A6B89832149F9B2003F5323 /* MGObfuscator */ = {
 			isa = PBXGroup;
 			children = (
-				3A6B89B22149FA09003F5323 /* MGObfuscator.swift */,
+				3A522A25215BA58D006C872C /* MGObfuscate */,
 				3A6B89842149F9B2003F5323 /* AppDelegate.swift */,
 				3A6B89862149F9B2003F5323 /* ViewController.swift */,
 				3A6B89882149F9B2003F5323 /* Main.storyboard */,
@@ -132,7 +224,55 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		3A522A01215BA44F006C872C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A522A18215BA450006C872C /* MGObfuscate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		3A522A05215BA44F006C872C /* MGObfuscate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A522A1D215BA450006C872C /* Build configuration list for PBXNativeTarget "MGObfuscate" */;
+			buildPhases = (
+				3A522A01215BA44F006C872C /* Headers */,
+				3A522A02215BA44F006C872C /* Sources */,
+				3A522A03215BA44F006C872C /* Frameworks */,
+				3A522A04215BA44F006C872C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MGObfuscate;
+			productName = MGObfuscate;
+			productReference = 3A522A06215BA44F006C872C /* MGObfuscate.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3A522A0D215BA450006C872C /* MGObfuscateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A522A21215BA450006C872C /* Build configuration list for PBXNativeTarget "MGObfuscateTests" */;
+			buildPhases = (
+				3A522A0A215BA450006C872C /* Sources */,
+				3A522A0B215BA450006C872C /* Frameworks */,
+				3A522A0C215BA450006C872C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A522A11215BA450006C872C /* PBXTargetDependency */,
+				3A522A13215BA450006C872C /* PBXTargetDependency */,
+			);
+			name = MGObfuscateTests;
+			productName = MGObfuscateTests;
+			productReference = 3A522A0E215BA450006C872C /* MGObfuscateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3A6B89802149F9B2003F5323 /* MGObfuscator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A6B89A92149F9B3003F5323 /* Build configuration list for PBXNativeTarget "MGObfuscator" */;
@@ -140,10 +280,12 @@
 				3A6B897D2149F9B2003F5323 /* Sources */,
 				3A6B897E2149F9B2003F5323 /* Frameworks */,
 				3A6B897F2149F9B2003F5323 /* Resources */,
+				3A522A20215BA450006C872C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3A522A1A215BA450006C872C /* PBXTargetDependency */,
 			);
 			name = MGObfuscator;
 			productName = MGObfuscator;
@@ -192,10 +334,17 @@
 		3A6B89792149F9B2003F5323 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Gupta, Mrigank";
 				TargetAttributes = {
+					3A522A05215BA44F006C872C = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					3A522A0D215BA450006C872C = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 3A6B89802149F9B2003F5323;
+					};
 					3A6B89802149F9B2003F5323 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -225,11 +374,27 @@
 				3A6B89802149F9B2003F5323 /* MGObfuscator */,
 				3A6B89942149F9B3003F5323 /* MGObfuscatorTests */,
 				3A6B899F2149F9B3003F5323 /* MGObfuscatorUITests */,
+				3A522A05215BA44F006C872C /* MGObfuscate */,
+				3A522A0D215BA450006C872C /* MGObfuscateTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3A522A04215BA44F006C872C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A522A0C215BA450006C872C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A6B897F2149F9B2003F5323 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,13 +422,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3A522A02215BA44F006C872C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A522A24215BA508006C872C /* MGObfuscate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A522A0A215BA450006C872C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A522A16215BA450006C872C /* MGObfuscateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A6B897D2149F9B2003F5323 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3A6B89872149F9B2003F5323 /* ViewController.swift in Sources */,
 				3A6B89852149F9B2003F5323 /* AppDelegate.swift in Sources */,
-				3A6B89B32149FA09003F5323 /* MGObfuscator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +466,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3A522A11215BA450006C872C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A522A05215BA44F006C872C /* MGObfuscate */;
+			targetProxy = 3A522A10215BA450006C872C /* PBXContainerItemProxy */;
+		};
+		3A522A13215BA450006C872C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A6B89802149F9B2003F5323 /* MGObfuscator */;
+			targetProxy = 3A522A12215BA450006C872C /* PBXContainerItemProxy */;
+		};
+		3A522A1A215BA450006C872C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A522A05215BA44F006C872C /* MGObfuscate */;
+			targetProxy = 3A522A19215BA450006C872C /* PBXContainerItemProxy */;
+		};
 		3A6B89972149F9B3003F5323 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3A6B89802149F9B2003F5323 /* MGObfuscator */;
@@ -318,6 +513,104 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3A522A1E215BA450006C872C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MGObfuscate/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogicx.MGObfuscate;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3A522A1F215BA450006C872C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MGObfuscate/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogicx.MGObfuscate;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3A522A22215BA450006C872C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MGObfuscateTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogicx.MGObfuscateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGObfuscator.app/MGObfuscator";
+			};
+			name = Debug;
+		};
+		3A522A23215BA450006C872C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MGObfuscateTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cogicx.MGObfuscateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGObfuscator.app/MGObfuscator";
+			};
+			name = Release;
+		};
 		3A6B89A72149F9B3003F5323 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -435,6 +728,7 @@
 		3A6B89AA2149F9B3003F5323 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MGObfuscator/Info.plist;
@@ -452,6 +746,7 @@
 		3A6B89AB2149F9B3003F5323 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MGObfuscator/Info.plist;
@@ -547,6 +842,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3A522A1D215BA450006C872C /* Build configuration list for PBXNativeTarget "MGObfuscate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A522A1E215BA450006C872C /* Debug */,
+				3A522A1F215BA450006C872C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A522A21215BA450006C872C /* Build configuration list for PBXNativeTarget "MGObfuscateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A522A22215BA450006C872C /* Debug */,
+				3A522A23215BA450006C872C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3A6B897C2149F9B2003F5323 /* Build configuration list for PBXProject "MGObfuscator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

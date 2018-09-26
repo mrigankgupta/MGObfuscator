@@ -13,7 +13,7 @@ import CommonCrypto
 https://stackoverflow.com/questions/25248598/importing-commoncrypto-in-a-swift-framework
 */
 // A thin wrapper arround interfacing
-enum CrypticAlgo {
+public enum CrypticAlgo {
     case AlgoAES
     case AlgoDES
 
@@ -45,13 +45,13 @@ enum CrypticAlgo {
     }
 }
 
-final class MGObfuscator {
+public final class MGObfuscate {
 
     private var ivData: [UInt8]?
     private var derivedKey: Data?
     private let crypticAlgo: CrypticAlgo
 
-    init(password: String, salt: String, algo: CrypticAlgo) {
+    public init(password: String, salt: String, algo: CrypticAlgo) {
         //Quickly get the data to release the password string
         let passwordData = password.data(using: .utf8)!
         //
@@ -64,7 +64,7 @@ final class MGObfuscator {
                                       salt.count, CCPseudoRandomAlgorithm(kCCPRFHmacAlgSHA1), Int(CC_SHA1_DIGEST_LENGTH), 1000)
 
         let saltData = salt.data(using: .utf8)!
-        derivedKey = MGObfuscator.derivedKey(for: passwordData,
+        derivedKey = MGObfuscate.derivedKey(for: passwordData,
                                              saltData: saltData, rounds: rounds)
         self.crypticAlgo = algo
         var ivData = [UInt8](repeating: 0, count: algo.blockSize())
