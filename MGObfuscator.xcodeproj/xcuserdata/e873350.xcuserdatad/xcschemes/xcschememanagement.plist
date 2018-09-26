@@ -7,12 +7,45 @@
 		<key>MGObfuscate.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
-		<key>MGObfuscator.xcscheme</key>
+		<key>MGObfuscateTests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3A522A05215BA44F006C872C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A522A0D215BA450006C872C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A522A62215BADA7006C872C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A6B89802149F9B2003F5323</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A6B89942149F9B3003F5323</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A6B899F2149F9B3003F5323</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
