@@ -61,7 +61,7 @@ public final class MGObfuscate {
         // to get actual password and deter his/her efforts.
         //
         let rounds = CCCalibratePBKDF(CCPBKDFAlgorithm(kCCPBKDF2), password.count,
-                                      salt.count, CCPseudoRandomAlgorithm(kCCPRFHmacAlgSHA1), Int(CC_SHA1_DIGEST_LENGTH), 1000)
+                                      salt.count, CCPseudoRandomAlgorithm(kCCPRFHmacAlgSHA256), Int(CC_SHA256_DIGEST_LENGTH), 1000)
 
         let saltData = salt.data(using: .utf8)!
         derivedKey = MGObfuscate.derivedKey(for: passwordData,
@@ -78,11 +78,11 @@ public final class MGObfuscate {
     }
 
     @inline(__always) private static func derivedKey(for passwordData: Data, saltData: Data, rounds: UInt32) -> Data {
-        var derivedData = Data(count: Int(CC_SHA1_DIGEST_LENGTH))
+        var derivedData = Data(count: Int(CC_SHA256_DIGEST_LENGTH))
         let result = derivedData.withUnsafeMutableBytes { (drivedBytes: UnsafeMutablePointer<UInt8>?) in
             passwordData.withUnsafeBytes({ (passwordBytes: UnsafePointer<Int8>!) in
                 saltData.withUnsafeBytes({ (saltBytes: UnsafePointer<UInt8>!) in
-                    CCKeyDerivationPBKDF(CCPBKDFAlgorithm(kCCPBKDF2), passwordBytes, passwordData.count, saltBytes, saltData.count, CCPseudoRandomAlgorithm(kCCPRFHmacAlgSHA1), rounds, drivedBytes, Int(CC_SHA1_DIGEST_LENGTH))
+                    CCKeyDerivationPBKDF(CCPBKDFAlgorithm(kCCPBKDF2), passwordBytes, passwordData.count, saltBytes, saltData.count, CCPseudoRandomAlgorithm(kCCPRFHmacAlgSHA256), rounds, drivedBytes, Int(CC_SHA256_DIGEST_LENGTH))
                 })
             })
         }
@@ -122,10 +122,12 @@ public final class MGObfuscate {
         return cryptData
     }
 
-    public func encriptAndPurge(inputString: inout String) -> Data {
-        let inputdata = inputString.data(using: .utf8)!
-        inputString = ""
-        return runCryptic(operation: kCCEncrypt, inputData: inputdata, keyData: derivedKey!, ivData: Data(bytes: ivData!))
+    public func encriptAndPurge(inputString: inout String?) -> Data? {
+        if let inputdata = inputString?.data(using: .utf8) {
+            inputString = nil
+            return runCryptic(operation: kCCEncrypt, inputData: inputdata, keyData: derivedKey!, ivData: Data(bytes: ivData!))
+        }
+        return nil
     }
 
     public func encript(inputString: String) -> Data {

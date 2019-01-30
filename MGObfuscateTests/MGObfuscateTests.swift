@@ -28,19 +28,23 @@ class MGObfuscateTests: XCTestCase {
     }
     
     func testDESAlgo() {
-        var testString = "Mrigank"
+        var testString: String? = "Mrigank"
         let encrpted = obfsDES.encriptAndPurge(inputString: &testString)
-        obfsDES.decript(data: encrpted) { (decripted) in
-            XCTAssertEqual(decripted, "Mrigank")
+        if let encrpted = encrpted {
+            obfsDES.decript(data: encrpted) { (decripted) in
+                XCTAssertEqual(decripted, "Mrigank")
+            }
         }
         XCTAssertNotEqual(testString, "Mrigank")
     }
 
     func testAESAlgo() {
-        var testString = "Gupta"
+        var testString: String? = "Gupta"
         let encrpted = obfsAES.encriptAndPurge(inputString: &testString)
-        obfsAES.decript(data: encrpted) { (decripted) in
-            XCTAssertEqual(decripted, "Gupta")
+        if let encrpted = encrpted {
+            obfsAES.decript(data: encrpted) { (decripted) in
+                XCTAssertEqual(decripted, "Gupta")
+            }
         }
         XCTAssertNotEqual(testString, "Gupta")
     }
